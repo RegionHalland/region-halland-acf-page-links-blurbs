@@ -1,0 +1,13 @@
+{
+    "name": "regionhalland/region-halland-acf-page-links-blurbs",
+    "description": "Skapar post_typen Blurbs, dvs puffar + visa dessa puffar på en sida",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roland Hydén",
+            "email": "Roland.Hyden@Regionhalland.se"
+        }
+    ],
+    "require": {}
+}
