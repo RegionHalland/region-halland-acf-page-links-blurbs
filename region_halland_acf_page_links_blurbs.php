@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Links Blurbs
 	Description: Skapar post_typen "Blurbs", dvs puffar + visa dessa "puffar" på en sida 
-	Version: 1.0.0
+	Version: 1.1.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -44,6 +44,57 @@
 	    // Registrera post_type
 	    register_post_type('blurbs', $args);
 	    
+	}
+
+	// Anropa function om ACF är installerad
+	add_action('acf/init', 'my_acf_page_links_blurbs_field_groups');
+
+	// Function för att lägga till "field groups"
+	function my_acf_page_links_blurbs_field_groups() {
+
+		if (function_exists('acf_add_local_field_group')):
+
+			acf_add_local_field_group(array(
+			    'key' => 'group_1000115',
+			    'title' => ' ',
+			    'fields' => array(
+			        0 => array(
+		              'key' => 'field_1000116',
+            		  'label' => __('Länk', 'regionhalland'),
+            		  'name' => 'name_1000117',
+            		  'type' => 'link',
+            		  'instructions' => __('Länk till läs mer. Kan vara en extern länk eller en sida.', 'regionhalland'),
+            		  'required' => 0,
+            		  'conditional_logic' => 0,
+            		  'wrapper' => array(
+                		'width' => '',
+                		'class' => '',
+                		'id' => '',
+            		  ),
+            		  'return_format' => 'array',
+        		    ),
+			    ),
+			    'location' => array(
+			        0 => array(
+			            0 => array(
+			                'param' => 'post_type',
+			                'operator' => '==',
+			                'value' => 'blurbs',
+			            ),
+			        )
+			    ),
+			    'menu_order' => 0,
+			    'position' => 'normal',
+			    'style' => 'default',
+			    'label_placement' => 'top',
+			    'instruction_placement' => 'label',
+			    'hide_on_screen' => '',
+			    'active' => 1,
+			    'description' => '',
+			));
+
+		endif;
+
 	}
 
 	// Anropa function om ACF är installerad
@@ -172,6 +223,14 @@
 				$image 			= get_the_post_thumbnail($post->ID);
 				$imageUrl 		= get_the_post_thumbnail_url($post->ID);
 				
+				// Hämta ACF-objektet för link
+				$fieldLink 		= get_field_object('field_1000116', $post->ID);
+			
+				// Spara ner ACF-data i page-arrayen
+				$linkTitle 		= $fieldLink['value']['title'];
+				$linkUrl 		= $fieldLink['value']['url'];
+				$linkTarget 	= $fieldLink['value']['target'];
+				
 				// Pusha data till temporär array
 		        array_push($myPosts, array(
 		           'ID' => $postID,
@@ -179,7 +238,10 @@
 		           'post_name' => $strPostName,
 		           'post_content' => $postContent,
 		           'image' => $image,
-		           'image_url' => $imageUrl
+		           'image_url' => $imageUrl,
+		           'link_title' => $linkTitle,
+		           'link_url' => $linkUrl,
+		           'link_target' => $linkTarget
 		        ));
 
 			}
