@@ -119,7 +119,7 @@ array (size=3)
 ```
 
 
-## Hämta ut en enskild "blurb" via Blade
+## Exempel på "enskild" array
 
 ```sh
 object(WP_Post)[6859]
