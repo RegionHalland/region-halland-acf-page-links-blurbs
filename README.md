@@ -158,6 +158,9 @@ object(WP_Post)[6859]
 
 ## Versionhistorik
 
+### 1.2.1
+- Lagade error om en sida saknar puffar, returnerar då en tom array
+
 ### 1.2.0
 - Funktion för att hämta enskild blurb
 

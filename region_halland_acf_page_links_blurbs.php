@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Links Blurbs
 	Description: Skapar post_typen "Blurbs", dvs puffar + visa dessa "puffar" på en sida 
-	Version: 1.2.0
+	Version: 1.2.1
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -191,64 +191,69 @@
 		// Temporär array för alla poster
 		$myPosts = array();
 		
-		// Loopa igenom alla länkar
-		foreach ($myFields as $field) {
-		    
-		    // Länk url
-		    $strLinkUrl		= $field['name_1000114'];
-		    
-		    // Längden på url:en
-		    $lenLinkUrl     = strlen($strLinkUrl);
-			
-		    // Kolla så att det faktiskt finns en länk
-			if ($lenLinkUrl > 0 ) {
+		if ($myFields) {
 
-				// Splitta länken på "/"
-				$arrUrl 		= explode("/",$strLinkUrl);
-				$countUrl 		= count($arrUrl);
+			// Loopa igenom alla länkar
+			foreach ($myFields as $field) {
+			    
+			    // Länk url
+			    $strLinkUrl		= $field['name_1000114'];
+			    
+			    // Längden på url:en
+			    $lenLinkUrl     = strlen($strLinkUrl);
 				
-				// välj post_name
-				$strPostName	= $arrUrl[$countUrl-2];
-				
-				// Funktion som returnerar postID basterat på post_name
-				$postID 		= get_region_halland_acf_page_links_blurbs_post_id($strPostName);
-				
-				// Hämta hela posten
-				$post 			= get_post($postID);
-				
-				// Post content från posten
-				$postContent 	= $post->post_content;
-				
-				// Bild
-				$image 			= get_the_post_thumbnail($post->ID);
-				$imageUrl 		= get_the_post_thumbnail_url($post->ID);
-				
-				// Hämta ACF-objektet för link
-				$fieldLink 		= get_field_object('field_1000116', $post->ID);
-			
-				// Spara ner ACF-data i page-arrayen
-				$linkTitle 		= $fieldLink['value']['title'];
-				$linkUrl 		= $fieldLink['value']['url'];
-				$linkTarget 	= $fieldLink['value']['target'];
-				
-				// Pusha data till temporär array
-		        array_push($myPosts, array(
-		           'ID' => $postID,
-		           'post_url' => $strLinkUrl,
-		           'post_name' => $strPostName,
-		           'post_content' => $postContent,
-		           'image' => $image,
-		           'image_url' => $imageUrl,
-		           'link_title' => $linkTitle,
-		           'link_url' => $linkUrl,
-		           'link_target' => $linkTarget
-		        ));
+			    // Kolla så att det faktiskt finns en länk
+				if ($lenLinkUrl > 0 ) {
 
-			}
-        }
+					// Splitta länken på "/"
+					$arrUrl 		= explode("/",$strLinkUrl);
+					$countUrl 		= count($arrUrl);
+					
+					// välj post_name
+					$strPostName	= $arrUrl[$countUrl-2];
+					
+					// Funktion som returnerar postID basterat på post_name
+					$postID 		= get_region_halland_acf_page_links_blurbs_post_id($strPostName);
+					
+					// Hämta hela posten
+					$post 			= get_post($postID);
+					
+					// Post content från posten
+					$postContent 	= $post->post_content;
+					
+					// Bild
+					$image 			= get_the_post_thumbnail($post->ID);
+					$imageUrl 		= get_the_post_thumbnail_url($post->ID);
+					
+					// Hämta ACF-objektet för link
+					$fieldLink 		= get_field_object('field_1000116', $post->ID);
+				
+					// Spara ner ACF-data i page-arrayen
+					$linkTitle 		= $fieldLink['value']['title'];
+					$linkUrl 		= $fieldLink['value']['url'];
+					$linkTarget 	= $fieldLink['value']['target'];
+					
+					// Pusha data till temporär array
+			        array_push($myPosts, array(
+			           'ID' => $postID,
+			           'post_url' => $strLinkUrl,
+			           'post_name' => $strPostName,
+			           'post_content' => $postContent,
+			           'image' => $image,
+			           'image_url' => $imageUrl,
+			           'link_title' => $linkTitle,
+			           'link_url' => $linkUrl,
+			           'link_target' => $linkTarget
+			        ));
+
+				}
+	        }
+
+		}
 		
 		// Returnera alla poster
-		return $myPosts;	
+		return $myPosts;
+
 	}
 
 	function get_region_halland_acf_page_links_blurbs_post_id($post_name) {
