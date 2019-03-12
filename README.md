@@ -59,6 +59,7 @@ OBS! Justera så att du hämtar aktuell version.
   @foreach ($myBlurbs as $blurbs)
     <span><a href="{{ $blurbs['post_url'] }}">{{ $blurbs['post_name'] }}</a></span><br>
     <span>{!! $blurbs['image'] !!}</span><br>
+    <span>{{ $blurbs['post_title'] }}</span>
     <span>{{ $blurbs['post_content'] }}</span>
     <span><a href="{{ $blurbs['link_url'] }}" target="{{ $blurbs['link_target'] }}">{{ $blurbs['link_title'] }}</a></span><br>
   @endforeach
@@ -75,6 +76,7 @@ array (size=3)
       'ID' => int 117
       'post_url' => string 'http://exempel.se/puffar/min-tredje-puff/' (length=41)
       'post_name' => string 'min-tredje-puff' (length=15)
+      'post_title' => string 'Min tredje puff' (length=15)
       'post_content' => string 'Innehåll för min tredje puff' (length=28)
       'image' => string '<img width="400" height="180" src="http://exempel.se/app/uploads/2018/11/nyhet_1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://exempel.se/app/uploads/2018/11/nyhet_1.jpg 400w, http://exempel.se/app/uploads/2018/11/nyhet_1-300x135.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />' (length=331)
       'image_url' => string 'http://exempel.se/app/uploads/2018/11/nyhet_1.jpg' (length=48)
@@ -87,6 +89,7 @@ array (size=3)
       'ID' => int 115
       'post_url' => string 'http://exempel.se/puffar/min-forsta-puff/' (length=41)
       'post_name' => string 'min-forsta-puff' (length=15)
+      'post_title' => string 'Min första puff' (length=15)
       'post_content' => string 'Innehåll för min första puff' (length=28)
       'image' => string '<img width="400" height="180" src="http://exempel.se/app/uploads/2018/11/nyhet_3.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://exempel.se/app/uploads/2018/11/nyhet_3.jpg 400w, http://exempel.se/app/uploads/2018/11/nyhet_3-300x135.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />' (length=331)
       'image_url' => string 'http://exempel.se/app/uploads/2018/11/nyhet_3.jpg' (length=49)
@@ -98,6 +101,7 @@ array (size=3)
       'ID' => int 116
       'post_url' => string 'http://exempel.se/puffar/min-andra-puff/' (length=40)
       'post_name' => string 'min-andra-puff' (length=14)
+      'post_title' => string 'Min andra puff' (length=14)
       'post_content' => string 'Innehåll för mind andra puff' (length=27)
       'image' => string '<img width="400" height="180" src="http://exempel.se/app/uploads/2018/11/nyhet_2.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://exempel.se/app/uploads/2018/11/nyhet_2.jpg 400w, http://exempel.se/app/uploads/2018/11/nyhet_2-300x135.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />' (length=331)
       'image_url' => string 'http://exempel.se/app/uploads/2018/11/nyhet_2.jpg' (length=49)
