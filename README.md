@@ -162,6 +162,12 @@ object(WP_Post)[6859]
 
 ## Versionhistorik
 
+### 1.3.1
+- Lagat error om man inte har angett någon länk i puffen
+
+### 1.3.0
+- Adderat post_title till arrayen som hämtas ut
+
 ### 1.2.1
 - Lagade error om en sida saknar puffar, returnerar då en tom array
 

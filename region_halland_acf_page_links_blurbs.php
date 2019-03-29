@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Links Blurbs
 	Description: Skapar post_typen "Blurbs", dvs puffar + visa dessa "puffar" på en sida 
-	Version: 1.3.0
+	Version: 1.3.1
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -218,7 +218,7 @@
 					// Hämta hela posten
 					$post 			= get_post($postID);
 					
-					// Post content från posten
+					// Post title från posten
 					$postTitle 	= $post->post_title;
 					
 					// Post content från posten
@@ -231,11 +231,20 @@
 					// Hämta ACF-objektet för link
 					$fieldLink 		= get_field_object('field_1000116', $post->ID);
 				
+					// Kontrollera om det finns en sparad länk
+					$isFieldLinkArray = is_array($fieldLink['value']);
+									
 					// Spara ner ACF-data i page-arrayen
-					$linkTitle 		= $fieldLink['value']['title'];
-					$linkUrl 		= $fieldLink['value']['url'];
-					$linkTarget 	= $fieldLink['value']['target'];
-					
+					if ($isFieldLinkArray) {
+						$linkTitle 		= $fieldLink['value']['title'];
+						$linkUrl 		= $fieldLink['value']['url'];
+						$linkTarget 	= $fieldLink['value']['target'];
+					} else {
+						$linkTitle 		= "";
+						$linkUrl 		= "";
+						$linkTarget 	= "";
+					}
+
 					// Pusha data till temporär array
 			        array_push($myPosts, array(
 			           'ID' => $postID,
