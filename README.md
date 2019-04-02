@@ -66,6 +66,15 @@ OBS! Justera så att du hämtar aktuell version.
 @endif
 ```
 
+## Använd ett ID
+
+- Man kan välja att använda ett id (för en sida) när man hämtar ut puffar
+- Default är dock utan ID
+
+```sh
+@php($myBlurbs = get_region_halland_acf_main_post_page_links_blurbs(116))
+```
+
 
 ## Exempel på hur arrayen kan se ut
 
@@ -161,6 +170,9 @@ object(WP_Post)[6859]
 
 
 ## Versionhistorik
+
+### 1.4.0
+- Möjlighet att ange ID när man hämtar ut puffar
 
 ### 1.3.1
 - Lagat error om man inte har angett någon länk i puffen
