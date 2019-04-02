@@ -171,6 +171,9 @@ object(WP_Post)[6859]
 
 ## Versionhistorik
 
+### 1.4.1
+- Fixat bugg med if-sats
+
 ### 1.4.0
 - Möjlighet att ange ID när man hämtar ut puffar
 

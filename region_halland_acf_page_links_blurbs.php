@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Links Blurbs
 	Description: Skapar post_typen "Blurbs", dvs puffar + visa dessa "puffar" på en sida 
-	Version: 1.4.0
+	Version: 1.4.1
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -186,7 +186,7 @@
 	function get_region_halland_acf_main_post_page_links_blurbs($ID = 0) {
 		
 		// Kolla om man har angett något ID
-		if {$ID == 0} {
+		if ($ID == 0) {
 			
 			// Wordpress funktion för aktuell sida
 			global $post;
