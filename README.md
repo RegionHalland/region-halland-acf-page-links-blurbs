@@ -171,8 +171,11 @@ object(WP_Post)[6859]
 
 ## Versionhistorik
 
+### 1.4.2
+- Bugg med postdata åtgärdad. Blev fel global post.
+
 ### 1.4.1
-- Fixat bugg med if-sats
+- Bugg med if-sats åtgärdad
 
 ### 1.4.0
 - Möjlighet att ange ID när man hämtar ut puffar
