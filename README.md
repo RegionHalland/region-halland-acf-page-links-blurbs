@@ -89,6 +89,7 @@ array (size=3)
       'post_content' => string 'Innehåll för min tredje puff' (length=28)
       'image' => string '<img width="400" height="180" src="http://exempel.se/app/uploads/2018/11/nyhet_1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://exempel.se/app/uploads/2018/11/nyhet_1.jpg 400w, http://exempel.se/app/uploads/2018/11/nyhet_1-300x135.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />' (length=331)
       'image_url' => string 'http://exempel.se/app/uploads/2018/11/nyhet_1.jpg' (length=48)
+      'image_alt' => string 'Man med hundar' (length=14)
       'link_title' => string 'Donec Ut Pulvinar' (length=17)
       'link_url' => string 'http://exempel.se/mauris-id-consectetur/donec-ut-pulvinar/' (length=58)
       'link_target' => string '' (length=0)
@@ -102,6 +103,7 @@ array (size=3)
       'post_content' => string 'Innehåll för min första puff' (length=28)
       'image' => string '<img width="400" height="180" src="http://exempel.se/app/uploads/2018/11/nyhet_3.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://exempel.se/app/uploads/2018/11/nyhet_3.jpg 400w, http://exempel.se/app/uploads/2018/11/nyhet_3-300x135.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />' (length=331)
       'image_url' => string 'http://exempel.se/app/uploads/2018/11/nyhet_3.jpg' (length=49)
+      'image_alt' => string 'Två personer på cykel' (length=21)
       'link_title' => string 'Pellentesque Ipsum' (length=18)
       'link_url' => string 'http://exempel.se/mauris-id-consectetur/pellentesque-ipsum/' (length=59)
       'link_target' => string '' (length=0)
@@ -114,6 +116,7 @@ array (size=3)
       'post_content' => string 'Innehåll för mind andra puff' (length=27)
       'image' => string '<img width="400" height="180" src="http://exempel.se/app/uploads/2018/11/nyhet_2.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://exempel.se/app/uploads/2018/11/nyhet_2.jpg 400w, http://exempel.se/app/uploads/2018/11/nyhet_2-300x135.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />' (length=331)
       'image_url' => string 'http://exempel.se/app/uploads/2018/11/nyhet_2.jpg' (length=49)
+      'image_alt' => string '' (length=0)
       'link_title' => string 'Sök på Google' (length=13)
       'link_url' => string 'http://www.google.com' (length=21)
       'link_target' => string '_blank' (length=6)
@@ -170,6 +173,9 @@ object(WP_Post)[6859]
 
 
 ## Versionhistorik
+
+### 1.5.0
+- Hämtar ut alt-texten för en bild vid listning av alla
 
 ### 1.4.2
 - Bugg med postdata åtgärdad. Blev fel global post.

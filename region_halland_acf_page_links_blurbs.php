@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Links Blurbs
 	Description: Skapar post_typen "Blurbs", dvs puffar + visa dessa "puffar" på en sida 
-	Version: 1.4.2
+	Version: 1.5.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -210,30 +210,32 @@
 				if ($lenLinkUrl > 0 ) {
 
 					// Splitta länken på "/"
-					$arrUrl 		= explode("/",$strLinkUrl);
-					$countUrl 		= count($arrUrl);
+					$arrUrl = explode("/",$strLinkUrl);
+					$countUrl = count($arrUrl);
 					
 					// välj post_name
-					$strPostName	= $arrUrl[$countUrl-2];
+					$strPostName = $arrUrl[$countUrl-2];
 					
 					// Funktion som returnerar postID basterat på post_name
-					$postID 		= get_region_halland_acf_page_links_blurbs_post_id($strPostName);
+					$postID = get_region_halland_acf_page_links_blurbs_post_id($strPostName);
 					
 					// Hämta hela posten
-					$post 			= get_post($postID);
+					$post = get_post($postID);
 					
 					// Post title från posten
-					$postTitle 	= $post->post_title;
+					$postTitle = $post->post_title;
 					
 					// Post content från posten
-					$postContent 	= $post->post_content;
+					$postContent = $post->post_content;
 					
 					// Bild
-					$image 			= get_the_post_thumbnail($post->ID);
-					$imageUrl 		= get_the_post_thumbnail_url($post->ID);
+					$image = get_the_post_thumbnail($post->ID);
+					$imageUrl = get_the_post_thumbnail_url($post->ID);
+					$imageID = get_post_thumbnail_id($post->ID);
+					$imageAlt = get_post_meta($imageID, '_wp_attachment_image_alt', TRUE);
 					
 					// Hämta ACF-objektet för link
-					$fieldLink 		= get_field_object('field_1000116', $post->ID);
+					$fieldLink = get_field_object('field_1000116', $post->ID);
 				
 					// Kontrollera om det finns en sparad länk
 					$isFieldLinkArray = is_array($fieldLink['value']);
@@ -258,6 +260,7 @@
 			           'post_content' => $postContent,
 			           'image' => $image,
 			           'image_url' => $imageUrl,
+			           'image_alt' => $imageAlt,
 			           'link_title' => $linkTitle,
 			           'link_url' => $linkUrl,
 			           'link_target' => $linkTarget
