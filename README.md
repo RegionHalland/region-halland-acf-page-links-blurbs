@@ -12,10 +12,9 @@ Denna plugin skapar en posttyp med namn "Puffar". Dessa puffar kan man sedan vä
 
 ## Licensmodell
 
-Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell på:
+Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell via den medföljande filen:
 ```sh
-A) Gnu.org (https://www.gnu.org/licenses/gpl-3.0.html)
-B) Wikipedia (https://sv.wikipedia.org/wiki/GNU_General_Public_License)
+LICENSE (https://github.com/RegionHalland/region-halland-acf-page-links-blurbs/blob/master/LICENSE)
 ```
 
 
@@ -182,6 +181,9 @@ object(WP_Post)[6859]
 
 
 ## Versionhistorik
+
+### 1.7.0
+- Bifogat fil med licensmodell
 
 ### 1.6.0
 - Uppdaterat information om licensmodell
